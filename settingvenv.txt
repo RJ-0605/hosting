@@ -1,0 +1,14 @@
+As long as you're moving them from one virtualenv to another on the same machine, you could easily just do:
+
+$ cp -r [env1]/lib/pythonX.X/site-packages/* [env2]/lib/pythonX.X/site-packages/
+However, if the environments are on different machines or utilizing different versions of python or some other major difference, it's probably not a good idea. In general it's much safer to generate a requirements.txt, and then use that to load up all the same modules in the other environment. You can create the file manually if you like, but it's easier to just use pip.
+
+$ pip freeze -E [env1] > requirements.txt
+Or, if your virtualenv is activated already, you can simply do:
+
+$ pip freeze > requirements.txt
+Then, in your other environment, you can do:
+
+$ pip install -E [env2] -r /path/to/requirements.txt
+
+

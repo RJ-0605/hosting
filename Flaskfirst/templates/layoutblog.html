@@ -1,0 +1,102 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+    <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>Moro Blog</title>
+
+
+                <link rel="stylesheet" href="{{url_for('static',filename='css/blogNewNavbar.css')}}">
+                <link rel="stylesheet" href="{{url_for('static',filename='css/moroblog.css')}}">
+                <script type="text/javascript" src="{{url_for('static',filename='js/NewNavbar.js')}}"></script>
+               
+
+
+                
+
+            </head>
+
+          
+      <body>
+
+
+
+
+        <div class=wrap>
+
+        <div class="navsticky">
+          <!-- the navsticky is meant mainly for the homepage and scrolling -->
+
+          <div class="topnav " id="myTopnav">
+                        <a href='/blogdata' class="active">Home</a>
+                        <a href="#news">News</a>
+
+                        
+
+                        <a href="/contactblog">Contact</a>
+
+                        <div class="dropdown">
+                            <button class="dropbtn">Profile
+                              <i class="fa fa-caret-down"></i>
+                            </button>
+
+                                  <div class="dropdown-content">
+                                  <a href="/admin">Admin</a>
+                                  <a href="/loginblog">Login</a>
+                                  <a href="/login">Logout</a>
+                                  <a href="/signupblog">Signup</a>
+                                  </div>
+                        </div> 
+
+                        <a href='/aboutinsert'>About</a>
+                        {% block nav%} {% endblock nav %}
+                        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+                    </div>
+
+
+            <div class="header">
+
+
+
+
+              <h2>Welcome to Moro's Hub</h2>
+            </div>
+
+        </div>
+
+            <div class="row">
+
+              
+          
+                {% block body%}
+
+                {% endblock body%}
+
+                             
+          
+            {% block side%}
+            {% endblock side%}
+             
+
+          </div>
+
+{% block login %}
+
+{% endblock login %}
+
+
+            <div class="footer">
+              <h2>   &copy; 2014 Moro Corporation Llc  </h2>
+            </div>
+
+
+
+        </div>
+    </body>
+
+
+
+  </html>
